@@ -55,7 +55,14 @@ def start_codespaces():
             "6080", "localhost:5907"
         ])
 
-    print("Open port 6080 and select vnc.html")
+        # Automatically redirect to the application viewer
+    subprocess.run([
+        "sudo", "ln", "-sf",
+        "/usr/share/novnc/vnc.html",
+        "/usr/share/novnc/index.html"
+    ], check=True)
+
+    print("Open port 6080 to view ShopSmart AI")
 
 # Install Python libraries if missing
 try:
